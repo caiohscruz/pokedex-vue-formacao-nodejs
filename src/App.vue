@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-
+    <div v-for="(poke, index) in pokemons" :key='index'>
+      <PokemonCard :name="poke.name" :url="poke.url" :num="index+1" />
+    </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  import PokemonCard from "./components/PokemonCard.vue"
 
   export default {
     name: 'App',
@@ -20,7 +23,7 @@
       })
     },
     components: {
-
+      PokemonCard,
     }
   }
 </script>
